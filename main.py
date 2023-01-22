@@ -1,30 +1,21 @@
 import random
-your_points = 0
 
+answer = random.randint(1, 10)
+score = 5
 
-def guess_number():
-    guess = int(input("Guess the number: "))
+guess = int(input("Guess a number between 1 and 10: "))
 
+attempts = 1
 
-def random_number():
-    number = random.randrange(1, 10)
-    print(number)
-    if number < guess:
-        print("The number is smaller")
-    elif number > guess:
-        print("The number is bigger")
-    elif number == guess:
-        print()
+while guess != answer:
+    score -= 1
+    if guess > answer:
+        print("Too high! Try again.")
     else:
-        print("Correct!")
+        print("Too low! Try again.")
+    print("Current score:", score)
+    guess = int(input("Guess a number between 1 and 10: "))
+    attempts += 1
 
-
-
-
-random_number()
-
-# Gissa nummer
-# Numret ska vara mellan 1-10 (import random)
-# Efter 2 gissningar får man en extra hint. T.ex. Numret är mindre än 6
-# Börja med 5 poäng, för varje fel försvinner 1 poäng
-# EXTRA: 5 rundor, hur mycket poäng kvar efter dessa
+print("Correct! It took you", attempts, "attempts.")
+print("Final score:", score)
